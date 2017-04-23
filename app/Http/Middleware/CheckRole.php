@@ -20,8 +20,12 @@ class CheckRole
         }
 
         $actions = $request->route()->getAction();
-        var_dump($actions);
+        $roles = isset($actions['roles']) ? $actions['roles']: null;
 
-        return $next($request);
+        if ($request->user()->hasAnyRole($roles)) {
+            return $next($request);
+        }
+
+         return redirect('/');
     }
 }
