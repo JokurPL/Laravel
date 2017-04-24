@@ -31,7 +31,7 @@ Route::group([
         'uses' => 'PagesController@store',
         'as' => 'pages.store'
     ]);
-    Route::post('pages/edit/{page}', [
+    Route::get('pages/edit/{page}', [
         'uses' => 'PagesController@edit',
         'as' => 'pages.edit'
     ]);

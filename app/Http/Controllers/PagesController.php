@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Pages;
-use App\User;
-use Illuminate\Http\Request;
+
 use App\Http\Requests\PagesRequest;
+use App\Pages;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -20,7 +20,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = Pages::orderBy('id', 'DESC')->paginate(10);
+        $pages =  Pages::orderBy('id', 'DESC')->paginate(10);
 
         return view('pages.index', compact('pages'));
     }
@@ -38,7 +38,7 @@ class PagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Http\Requests\PagesRequest  $request
+     * @param  PagesRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(PagesRequest $request)
@@ -47,16 +47,6 @@ class PagesController extends Controller
         return redirect()->route('pages.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
