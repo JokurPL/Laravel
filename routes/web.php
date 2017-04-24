@@ -39,6 +39,10 @@ Route::group([
         'uses' => 'PagesController@update',
         'as' => 'pages.update'
     ]);
+    Route::delete('pages/{page}', [
+        'uses' => 'PagesController@destroy',
+        'as' => 'pages.destroy'
+    ]);
 });
 
 Auth::routes();
